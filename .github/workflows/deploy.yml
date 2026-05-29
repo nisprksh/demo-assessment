@@ -73,10 +73,7 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
-      - name: Set up kind (Kubernetes in Docker)
-        uses: helm/kind-action@v1.7.0
-        with:
-         cluster_name: kind
+      
   kubernetes:
     name: Deploy to Kubernetes
     runs-on: self-hosted
@@ -85,7 +82,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-
+      - name: Set up kind (Kubernetes in Docker)
+        uses: helm/kind-action@v1.7.0
+        with:
+         cluster_name: kind
+         
       - name: Set up kubectl
         uses: azure/setup-kubectl@v4
 
