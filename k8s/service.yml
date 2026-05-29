@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: copilot-agent
+  namespace: copilot-agent
+spec:
+  selector:
+    app: copilot-agent
+  type: NodePort
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000
+      # NodePort range 30000-32767 — access via http://localhost:30080
+      nodePort: 30080
