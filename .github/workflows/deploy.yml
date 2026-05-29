@@ -120,8 +120,10 @@ jobs:
           kind load docker-image ${IMAGE} --name kind
 
       - name: Apply Kubernetes manifests
-        run: kubectl apply -f k8s/
-      
+        run: |
+          kubectl apply -f k8s/namespace.yml
+          kubectl apply -f k8s/
+              
       - name: Create / update secret from GitHub secrets
         run: |
           kubectl create secret generic copilot-agent-env \
