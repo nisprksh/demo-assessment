@@ -92,7 +92,7 @@ jobs:
       - name: Configure kubeconfig
         shell: bash
         run: |
-          mkdir -p ~/.kube
+          mkdir -p ~/.kube || true
           echo "${{ secrets.KUBECONFIG }}" | base64 -d > ~/.kube/config
           chmod 600 ~/.kube/config
 
