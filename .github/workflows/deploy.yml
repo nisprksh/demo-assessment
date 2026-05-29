@@ -90,6 +90,7 @@ jobs:
         uses: azure/setup-kubectl@v4
 
       - name: Configure kubeconfig
+        shell: bash
         run: |
           mkdir -p ~/.kube
           echo "${{ secrets.KUBECONFIG }}" | base64 -d > ~/.kube/config
