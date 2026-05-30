@@ -38,7 +38,7 @@ cd demo-assessment
 2. Install dependencies:
 ```bash
 npm install
-```
+ ```
 
 ## Available Scripts
 
